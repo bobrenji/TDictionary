@@ -43,4 +43,16 @@ export default class Dictionary {
         }
         return keys
     }
+
+    getAllValues(): string[] {
+        if (this.length === 0) return []
+        let values: string[] = []
+
+        for (const key in this.containers) {
+            if(this.containers[key]) {
+                values.push(this.containers[key])
+            }
+        }
+        return values
+    }
 }

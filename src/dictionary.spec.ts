@@ -69,4 +69,13 @@ describe('Dictionary', function () {
         const keys: string[] = aDict.getAllKeys();
         expect(keys.length).toEqual(3);
     });
+
+    it('should return all values in dictionary', function () {
+        aDict.add("firstName", "Bob")
+        aDict.add("lastName", "Jack")
+        aDict.add("middleName", "Dani")
+
+        const values = aDict.getAllValues();
+        expect(values.length).toEqual(3)
+    });
 });
