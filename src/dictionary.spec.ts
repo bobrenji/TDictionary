@@ -61,4 +61,12 @@ describe('Dictionary', function () {
         aDict.remove("lastName")
         expect(aDict.size()).toEqual(1)
     });
+
+    it('should return all keys in current dictionary', function () {
+        aDict.add("firstName", "Bob")
+        aDict.add("lastName", "Jack")
+        aDict.add("middleName", "Dani")
+        const keys = aDict.getAllKeys();
+        expect(keys.length).toEqual(3);
+    });
 });
