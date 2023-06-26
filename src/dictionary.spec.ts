@@ -1,6 +1,10 @@
 import Dictionary from "./dictionary";
 
 describe('Dictionary', function () {
+
+    it.todo("Handle value field as generic")
+    it.todo("Refactor dictionary class to generic")
+
     const aDict: Dictionary = new Dictionary()
     beforeEach(() => {
         aDict.removeAll()
