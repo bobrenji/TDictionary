@@ -1,6 +1,11 @@
+
 export default class Dictionary {
-    private containers: Record<string, string> = {};
-    private length: number = 0;
+    private containers: Record<string, string>;
+    private length: number;
+    constructor() {
+        this.containers = {};
+        this.length = 0;
+    }
     add(key: string, value: string) {
         if(this.containers[key]) {
             throw new Error("UNIQUE ONLY ALLOWED")
