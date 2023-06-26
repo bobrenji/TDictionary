@@ -23,4 +23,12 @@ describe('Dictionary', function () {
         expect(aDict.size()).toEqual(2);
     });
 
+    it('should possible to delete all item by calling removeAll', function () {
+        const aDict = new Dictionary()
+        aDict.add("firstName","Renji");
+        aDict.add("lastName","Raj");
+
+        aDict.removeAll()
+        expect(aDict.size()).toEqual(0);
+    });
 });

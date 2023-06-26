@@ -1,12 +1,17 @@
 export default class Dictionary {
-    private container: Record<string, string> = {};
+    private containers: Record<string, string> = {};
     private length: number = 0;
     add(key: string, value: string) {
-        this.container[key] = value;
+        this.containers[key] = value;
         this.length +=1;
     }
 
     size(): number {
         return this.length
+    }
+
+    removeAll(): void {
+        this.containers = {}
+        this.length = 0;
     }
 }
