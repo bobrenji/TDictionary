@@ -1,5 +1,5 @@
 class Dictionary {
-    private container: { [index: string]: string } = {};
+    private container: Record<string, string> = {};
     private length: number = 0;
     add(key: string, value: string) {
         this.container[key] = value;
