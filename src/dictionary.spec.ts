@@ -7,10 +7,10 @@ describe('Dictionary', function () {
     it.todo("should get value by key")
     it.todo("should possible to delete item by key")
     it.todo("should possible to delete all item by calling removeAll")
-    it.todo("should return all key registered in current dictionary")
+    it.todo("should return all keys in current dictionary")
     it.todo("should return all values in dictionary")
 
-    const aDict = new Dictionary()
+    const aDict: Dictionary = new Dictionary()
     beforeEach(() => {
         aDict.removeAll()
     })
@@ -45,5 +45,20 @@ describe('Dictionary', function () {
     it('should get value by key', function () {
         aDict.add("firstName", "Bob")
         expect(aDict.get("firstName")).toEqual("Bob")
+    });
+
+    it('should possible to delete item by key', function () {
+        aDict.add("firstName", "Bob")
+        aDict.add("lastName", "Jack")
+        expect(aDict.size()).toEqual(2)
+        aDict.remove("lastName")
+        expect(aDict.size()).toEqual(1)
+    });
+
+    it('should be the same size if ask to delete an unknown key', function () {
+        aDict.add("firstName", "Bob")
+        expect(aDict.size()).toEqual(1)
+        aDict.remove("lastName")
+        expect(aDict.size()).toEqual(1)
     });
 });

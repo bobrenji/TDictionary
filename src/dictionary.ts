@@ -26,4 +26,11 @@ export default class Dictionary {
     get(key: string): string | undefined {
         return this.containers[key] ? this.containers[key] : undefined;
     }
+
+    remove(key: string): void {
+        if(this.containers[key]) {
+            delete this.containers[key];
+            this.length -= 1
+        }
+    }
 }
