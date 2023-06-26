@@ -37,4 +37,13 @@ describe('Dictionary', function () {
         aDict.add("firstName", "Renji")
         expect(() => aDict.add("firstName", "Bob")).toThrowError("UNIQUE ONLY ALLOWED")
     });
+
+    it('should return undefined if not found for a specific key', function () {
+        expect(aDict.get("lastName")).toBeUndefined()
+    });
+
+    it('should get value by key', function () {
+        aDict.add("firstName", "Bob")
+        expect(aDict.get("firstName")).toEqual("Bob")
+    });
 });

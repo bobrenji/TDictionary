@@ -22,4 +22,8 @@ export default class Dictionary {
         this.containers = {}
         this.length = 0;
     }
+
+    get(key: string): string | undefined {
+        return this.containers[key] ? this.containers[key] : undefined;
+    }
 }
