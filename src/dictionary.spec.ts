@@ -32,4 +32,9 @@ describe('Dictionary', function () {
         aDict.removeAll()
         expect(aDict.size()).toEqual(0);
     });
+
+    it('should throw exception if try to add new value with same key', function () {
+        aDict.add("firstName", "Renji")
+        expect(() => aDict.add("firstName", "Bob")).toThrowError("UNIQUE ONLY ALLOWED")
+    });
 });
