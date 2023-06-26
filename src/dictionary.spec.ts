@@ -66,7 +66,7 @@ describe('Dictionary', function () {
         aDict.add("firstName", "Bob")
         aDict.add("lastName", "Jack")
         aDict.add("middleName", "Dani")
-        const keys = aDict.getAllKeys();
+        const keys: string[] = aDict.getAllKeys();
         expect(keys.length).toEqual(3);
     });
 });

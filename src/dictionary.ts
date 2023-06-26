@@ -35,11 +35,11 @@ export default class Dictionary {
     }
 
     getAllKeys(): string[] {
+        if(this.length === 0) return [];
         let keys: string[] = []
-        if(this.length > 0) {
-            for (const containersKey in this.containers) {
-                keys.push(containersKey)
-            }
+
+        for (const containersKey in this.containers) {
+            keys.push(containersKey)
         }
         return keys
     }
