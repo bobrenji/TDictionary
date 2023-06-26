@@ -6,13 +6,10 @@ export default class Dictionary {
         this.containers = {};
         this.length = 0;
     }
-    add(key: string, value: string) {
+    add(key: string, value: string): void {
         if(this.containers[key]) {
             throw new Error("UNIQUE ONLY ALLOWED")
         }
-        // if(this.containers.hasOwnProperty(key)) {
-        //
-        // }
         this.containers[key] = value;
         this.length +=1;
     }
