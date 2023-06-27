@@ -9,8 +9,9 @@ export interface IDictionary<T> {
     getAllValues(): T[]
 }
 
+type Container<T> = Record<string, T>; // Does it make sense to use Index signature {[key: string] : T} or Record?
 export default class Dictionary<T> implements IDictionary<T>{
-    private containers: Record<string, T>;
+    private containers: Container<T>;
     private length: number;
     constructor() {
         this.containers = {};
