@@ -2,9 +2,6 @@ import Dictionary, {IDictionary} from "./dictionary";
 
 describe('Dictionary', function () {
 
-    it.todo("Handle value field as generic")
-    it.todo("Refactor dictionary class to generic")
-
     describe('Dictionary for string', function () {
         const aDict: IDictionary<string> = new Dictionary()
         beforeEach(() => {
@@ -87,5 +84,9 @@ describe('Dictionary', function () {
             expect(aDict.size()).toEqual(1);
         });
 
+        it('should get value by key', function () {
+            aDict.add("income", 1000)
+            expect(aDict.get("income")).toEqual(1000)
+        });
     });
 });

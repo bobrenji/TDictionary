@@ -1,6 +1,12 @@
 
 export interface IDictionary<T> {
     add(key: string, value: T): void;
+    size(): number;
+    removeAll(): void;
+    get(key: string): T;
+    remove(key: string): void;
+    getAllKeys(): string[];
+    getAllValues(): T[]
 }
 
 export default class Dictionary<T> implements IDictionary<T>{
@@ -27,8 +33,8 @@ export default class Dictionary<T> implements IDictionary<T>{
         this.length = 0;
     }
 
-    get(key: string): string | undefined {
-        return this.containers[key] ? this.containers[key] : undefined;
+    get(key: string): T {
+        return this.containers[key];
     }
 
     remove(key: string): void {
@@ -48,9 +54,9 @@ export default class Dictionary<T> implements IDictionary<T>{
         return keys
     }
 
-    getAllValues(): string[] {
+    getAllValues(): T[] {
         if (this.length === 0) return []
-        let values: string[] = []
+        let values: T[] = []
 
         for (const key in this.containers) {
             if(this.containers[key]) {
