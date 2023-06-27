@@ -11,7 +11,7 @@ export interface IDictionary<T> {
 
 type Container<T> = Record<string, T>; // Does it make sense to use Index signature {[key: string] : T} or Record?
 export default class Dictionary<T> implements IDictionary<T>{
-    private containers: Container<T>;
+    private readonly containers: Container<T>;
     private length: number;
     constructor() {
         this.containers = {};
@@ -30,8 +30,9 @@ export default class Dictionary<T> implements IDictionary<T>{
     }
 
     removeAll(): void {
-        this.containers = {}
-        this.length = 0;
+        for (const key in this.containers) {
+            this.remove(key)
+        }
     }
 
     get(key: string): T {
