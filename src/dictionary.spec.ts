@@ -1,4 +1,4 @@
-import Dictionary from "./dictionary";
+import Dictionary, {IDictionary} from "./dictionary";
 
 describe('Dictionary', function () {
 
@@ -6,7 +6,7 @@ describe('Dictionary', function () {
     it.todo("Refactor dictionary class to generic")
 
     describe('Dictionary for string', function () {
-        const aDict: Dictionary = new Dictionary()
+        const aDict: IDictionary<string> = new Dictionary()
         beforeEach(() => {
             aDict.removeAll()
         })
@@ -77,7 +77,7 @@ describe('Dictionary', function () {
     });
 
     describe('Dictionary for Numbers', function () {
-        const aDict: Dictionary = new Dictionary()
+        const aDict: IDictionary<number> = new Dictionary()
         beforeEach(() => {
             aDict.removeAll()
         })

@@ -1,17 +1,21 @@
 
-export default class Dictionary {
-    private containers: Record<string, string>;
+export interface IDictionary<T> {
+    add(key: string, value: T): void;
+}
+
+export default class Dictionary<T> implements IDictionary<T>{
+    private containers: Record<string, T>;
     private length: number;
     constructor() {
         this.containers = {};
         this.length = 0;
     }
-    add(key: string, value: string): void {
+    add(key: string, value: T): void {
         if(this.containers[key]) {
             throw new Error("UNIQUE ONLY ALLOWED")
         }
-        this.containers[key] = value;
-        this.length +=1;
+        this.containers[key] = value
+        this.length +=1
     }
 
     size(): number {
@@ -55,4 +59,6 @@ export default class Dictionary {
         }
         return values
     }
+
+
 }
