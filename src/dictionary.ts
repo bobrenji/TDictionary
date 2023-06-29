@@ -1,23 +1,23 @@
 
-export interface IDictionary<T> {
-    add(key: string, value: T): void;
+export interface IDictionary<TValue> {
+    add(key: string, value: TValue): void;
     size(): number;
     removeAll(): void;
-    get(key: string): T;
+    get(key: string): TValue;
     remove(key: string): void;
     getAllKeys(): string[];
-    getAllValues(): T[]
+    getAllValues(): TValue[]
 }
 
 type Container<T> = Record<string, T>; // Does it make sense to use Index signature {[key: string] : T} or Record?
-export default class Dictionary<T> implements IDictionary<T>{
-    private readonly containers: Container<T>;
+export default class Dictionary<TValue> implements IDictionary<TValue>{
+    private readonly containers: Container<TValue>;
     private length: number;
     constructor() {
         this.containers = {};
         this.length = 0;
     }
-    add(key: string, value: T): void {
+    add(key: string, value: TValue): void {
         if(this.containers[key]) {
             throw new Error("UNIQUE ONLY ALLOWED")
         }
@@ -35,7 +35,7 @@ export default class Dictionary<T> implements IDictionary<T>{
         }
     }
 
-    get(key: string): T {
+    get(key: string): TValue {
         return this.containers[key];
     }
 
@@ -56,9 +56,9 @@ export default class Dictionary<T> implements IDictionary<T>{
         return keys
     }
 
-    getAllValues(): T[] {
+    getAllValues(): TValue[] {
         if (this.length === 0) return []
-        let values: T[] = []
+        let values: TValue[] = []
 
         for (const key in this.containers) {
             if(this.containers[key]) {
